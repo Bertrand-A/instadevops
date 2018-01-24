@@ -4,7 +4,8 @@ provider "aws" {
   region     = "us-east-1"
 }
 
-resource "aws_instance" "example" {
-  ami           = "ami-2757f631"
+# "typederessourcedeployé" "nomdelamachine" numéro ami à récuperer sur les free tier eligible - utiliser toujours t2.micro
+resource "aws_instance" "testweb" {
+  ami           = "ami-41e0b93b"
   instance_type = "t2.micro"
 }
