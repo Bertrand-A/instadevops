@@ -7,7 +7,7 @@
      shell: apt-get install -y apache2
 
    - name: Install PHP7
-     shell: apt-get install -y php-fpm php-mbstring php-pdo php-intl php-gd php-mcrypt php-memcached php-xml php-zip php-opcache libapache2-mod-$
+     shell: apt-get install -y php-fpm php-mbstring php-pdo php-intl php-gd php-mcrypt php-memcached php-xml php-zip php-opcache libapache2-mod-php7.0
 
    - name: download wordpress
      shell: cd /var/www &&  wget https://fr.wordpress.org/wordpress-4.9.2-fr_FR.tar.gz
@@ -24,6 +24,11 @@
    - name: rename the folder and move it
      shell: cd /var/www && mv wordpress/ blog/
 
-   #- name: edit setup-config Wordpress php
-   #  shell:
+   - name: edit setup-config Wordpress php (database parameters)
+     shell: cd /var/www/html/blog && grep -i 'votre_nom_de_bdd' wp-config.php | sed -i 's/votre_nom_de_bdd/wordpress_db/g' wp-config.php
+     shell: cd /var/www/html/blog && grep -i 'votre_utilisateur_de_bdd' wp-config.php | sed -i 's/votre_utilisateur_de_bdd/imad/g' wp-config.php
+     shell: cd /var/www/html/blog && grep -i 'votre_mdp_de_bdd' wp-config.php | sed -i 's/votre_mdp_de_bdd/insta75005/g' wp-config.php
+     shell: cd /var/www/html/blog && grep -i 'localhost' wp-config.php | sed -i 's/localhost/toto/g' wp-config.php
 
+   - name:
+     shell:
