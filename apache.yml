@@ -1,0 +1,29 @@
+---
+- hosts: ubuntu
+  gather_facts: false
+  become: true
+  tasks:
+   - name: deploy apache
+     shell: apt-get install -y apache2
+
+   - name: Install PHP7
+     shell: apt-get install -y php-fpm php-mbstring php-pdo php-intl php-gd php-mcrypt php-memcached php-xml php-zip php-opcache libapache2-mod-$
+
+   - name: download wordpress
+     shell: cd /var/www &&  wget https://fr.wordpress.org/wordpress-4.9.2-fr_FR.tar.gz
+
+   - name: extract wordpress.tar.gz
+     shell: cd /var/www && tar -xvf wordpress-4.9.2-fr_FR.tar.gz
+
+   #- name: rename the folder wordpress/ into blog/
+   #  shell: cd /var/www && mv wordpress/ blog/
+
+   - name: enable services
+     shell: systemctl restart apache2 php7.0-fpm
+
+   - name: rename the folder and move it
+     shell: cd /var/www && mv wordpress/ blog/
+
+   #- name: edit setup-config Wordpress php
+   #  shell:
+
