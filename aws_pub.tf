@@ -12,7 +12,7 @@ provider "aws" {
 resource "aws_key_pair" "deployer" {
   key_name   = "aws-key"
   public_key = "ssh key"
-}
+  }
 
 ## installation de la VM serveur WEB
   
@@ -23,7 +23,7 @@ resource "aws_instance" "testweb" {
   key_name   = "aws-key"
   }
  
-## Création du security group
+## Création du security group pour la db
 
 resource "aws_security_group" "allow_db" {
   name        = "allow_db"
@@ -63,4 +63,4 @@ resource "aws_db_instance" "wordpress_db" {
   name                 = "wordpress_db"
   username             = "imad"
   password             = "insta75005"
-}
+  }
