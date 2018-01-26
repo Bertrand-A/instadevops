@@ -1,8 +1,8 @@
 ## id de connexion à l'IAM AWS
 
 provider "aws" {
-  access_key = ""
-  secret_key = ""
+  access_key = "******"
+  secret_key = "******"
   region     = "us-east-1"
   }
 
@@ -22,6 +22,26 @@ resource "aws_instance" "testweb" {
   security_groups = ["MyDMZ"]
   key_name   = "aws-key"
   }
+ 
+## Création du security group
+
+resource "aws_security_group" "allow_db" {
+  name        = "allow_db"
+  description = "Allow db traffic"
+  vpc_id      = "vpc-53c6d12b"
+
+  ingress {
+    from_port   = 3306
+    to_port     = 3306
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port       = 3306
+    to_port         = 3306
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+}
 
 ## installation de la VM load-balancer
 
