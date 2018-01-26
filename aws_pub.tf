@@ -12,7 +12,7 @@ provider "aws" {
 resource "aws_key_pair" "deployer" {
   key_name   = "aws-key"
   public_key = "ssh key"
-  }
+}
 
 ## installation de la VM serveur WEB
   
@@ -43,4 +43,4 @@ resource "aws_db_instance" "wordpress_db" {
   name                 = "wordpress_db"
   username             = "imad"
   password             = "insta75005"
-  }
+}
