@@ -34,6 +34,7 @@
             timeout server  10000
 
             listen {{haproxy_app_name}} 0.0.0.0:80
+            listen {{haproxy_app_name}} 0.0.0.0:443
             mode {{haproxy_mode}}
             stats {{haproxy_enable_stats}}
             {% if haproxy_enable_stats == 'enable' %}
