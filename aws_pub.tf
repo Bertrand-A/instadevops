@@ -1,4 +1,5 @@
 ## id de connexion à l'IAM AWS
+
 provider "aws" {
   access_key = ""
   secret_key = ""
@@ -7,6 +8,7 @@ provider "aws" {
 
 
 ##  création de la clé d'accès ssh
+
 resource "aws_key_pair" "deployer" {
   key_name   = "aws-key"
   public_key = "ssh key"
