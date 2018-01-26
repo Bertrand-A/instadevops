@@ -4,7 +4,7 @@ provider "aws" {
   access_key = ""
   secret_key = ""
   region     = "us-east-1"
-}
+  }
 
 
 ##  création de la clé d'accès ssh
@@ -21,7 +21,7 @@ resource "aws_instance" "testweb" {
   instance_type = "t2.micro"
   security_groups = ["MyDMZ"]
   key_name   = "aws-key"
-}
+  }
 
 ## installation de la VM load-balancer
 
@@ -30,7 +30,7 @@ resource "aws_instance" "haproxy" {
   instance_type = "t2.micro"
   security_groups = ["MyDMZ"]
   key_name   = "aws-key"
-}
+  }
 
 ## installation de RDS
 
