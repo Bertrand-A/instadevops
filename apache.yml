@@ -32,5 +32,5 @@
      shell: cd /var/www/html/blog && grep -i 'votre_mdp_de_bdd' wp-config.php | sed -i 's/votre_mdp_de_bdd/insta75005/g' wp-config.php
      shell: cd /var/www/html/blog && grep -i 'localhost' wp-config.php | sed -i 's/localhost/toto/g' wp-config.php
 
-   - name: reset correct permission blog folder 
-     shell: cd /var/www && chmod 755 blog
+   - name: reset correct permissions into blog folder 
+     shell: cd /var/www/html && chmod 755 blog
